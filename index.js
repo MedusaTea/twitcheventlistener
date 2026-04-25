@@ -115,9 +115,6 @@ function sendToBizhawk(button) {
 // ─── chat ─────────────────────────────────────────────────────────────────────
 async function handleChatMessage(event) {
     const raw = event.message.text.trim();
-    const button = normalizeButton(raw);
-
-    if (!button) return;
 
     console.log(`${event.chatter_user_login}: "${raw}" → ${button}`);
     sendToBizhawk(button);

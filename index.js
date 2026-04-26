@@ -104,19 +104,7 @@ const FRIEREN_PATH = "/home/fiehra/Downloads/stream/frieren.sh";
 let scriptRunning = false;
 
 function runBackgroundScript(name) {
-  if (scriptRunning) {
-    console.log("Script already running, skipping redemption.");
-    return;
-  }
-  let path = RANDO_PATH
-  if (name === "frieren") {
-    path = FRIEREN_PATH
-  }
-  //const proc = spawn("bash", [path], { detached: true, stdio: "ignore" });
-  //proc.unref();
- // scriptRunning = true;
-  //proc.on("close", () => { scriptRunning = false; });
-  //proc.on("error", (err) => { console.error(err); scriptRunning = false; });
+  fetch('http://localhost:8084/echo/sometingtest')
 }
 
 // ─── eventsub websocket ───────────────────────────────────────────────────────
@@ -128,11 +116,8 @@ const notificationHandler = {
   "channel.channel_points_custom_reward_redemption.add": async (msg) => {
     const event = msg.payload.event;
     console.log(`${event.user_login} redeemed: ${event.reward.title}`);
-    if (event.reward.title === "new terminal background") {
-      runBackgroundScript("rando");
-    } else if (event.reward.title === "Sousou no frieren terminal background") {
-      runBackgroundScript("frieren");
-    }
+    runBackgroundScript('test')
+    //if (event.reward.title === "new terminal background") {
   }
 }
 

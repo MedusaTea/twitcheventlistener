@@ -1,5 +1,5 @@
 {
-  "name": "twitch-plays-pokemon",
+  "name": "twitch-event-listener",
   "version": "1.0.0",
   "type": "module",
   "scripts": {

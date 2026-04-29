@@ -103,8 +103,13 @@ const RANDO_PATH = "/home/fiehra/Downloads/stream/randomize.sh";
 const FRIEREN_PATH = "/home/fiehra/Downloads/stream/frieren.sh";
 let scriptRunning = false;
 
-function runBackgroundScript(name) {
-  fetch('http://localhost:8084/echo/sometingtest')
+async function runBackgroundScript(name) {
+  const data = await fetch('http://localhost:8084/input', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body:  '{"command": ' + '"lclick"' + '}',
+  }).then(r => console.log('fetch post called'));
+  //fetch('http://localhost:8084/input')
 }
 
 // ─── eventsub websocket ───────────────────────────────────────────────────────
